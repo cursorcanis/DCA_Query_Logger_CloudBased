@@ -1,0 +1,48 @@
+﻿@page
+@model DCA_Query_Logger_CloudBased.Pages.Queries.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Query[0].Title_of_Query)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Query[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Query[0].Type_of_Query)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Query) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title_of_Query)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type_of_Query)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

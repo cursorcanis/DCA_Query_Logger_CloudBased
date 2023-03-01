@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using DCA_Query_Logger_CloudBased.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<DCA_Query_Logger_CloudBasedContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DCA_Query_Logger_CloudBasedContext") ?? throw new InvalidOperationException("Connection string 'DCA_Query_Logger_CloudBasedContext' not found.")));
 
 var app = builder.Build();
 
