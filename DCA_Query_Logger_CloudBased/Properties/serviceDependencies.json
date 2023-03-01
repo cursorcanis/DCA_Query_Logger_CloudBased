@@ -2,7 +2,7 @@
   "dependencies": {
     "mssql1": {
       "type": "mssql",
-      "connectionId": "ConnectionStrings:DCA_Query_Logger_CloudBasedContext"
+      "connectionId": "ConnectionStrings:AZURE_SQL_CONNECTIONSTRING"
     }
   }
 }
